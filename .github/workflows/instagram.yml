@@ -1,0 +1,40 @@
+name: Instagram EB
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: publicar ou agendar
+        required: true
+        type: choice
+        options: [publicar, agendar]
+      post_id:
+        required: true
+        type: string
+      scheduled_at:
+        description: YYYY-MM-DDTHH:MM (America/Sao_Paulo)
+        required: false
+        type: string
+  schedule:
+    - cron: '*/5 * * * *'
+permissions:
+  contents: write
+jobs:
+  executar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Executar publica??o ou agenda
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python scripts/instagram_publish.py --operation "${{ inputs.operation || 'processar' }}" --post-id "${{ inputs.post_id || '' }}" --scheduled-at "${{ inputs.scheduled_at || '' }}"
+      - name: Salvar agenda atualizada
+        run: |
+          git config user.name 'EB Automa??o'
+          git config user.email 'actions@github.com'
+          git add automation/agenda.json
+          git diff --cached --quiet || git commit -m 'Atualiza agenda do Instagram'
+          git push
