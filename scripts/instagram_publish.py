@@ -43,6 +43,8 @@ def main():
   find(x.post_id);t=asutc(x.scheduled_at)
   if t<=datetime.now(timezone.utc):raise RuntimeError("Scheduled time must be in the future")
   agenda=[i for i in agenda if str(i["post_id"])!=x.post_id];agenda.append({"post_id":int(x.post_id),"scheduled_at":t.isoformat(),"status":"agendado"});save(AGENDA,agenda);print("AGENDADO",x.post_id);return
+ if x.operation=="aguardar":
+  print("AGUARDANDO",x.post_id);return
  if x.operation=="diagnosticar":
   token=os.getenv("IG_TOKEN");user=os.getenv("IG_USER_ID")
   if not token or not user:raise RuntimeError("IG secrets not configured")
