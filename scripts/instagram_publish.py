@@ -43,6 +43,12 @@ def main():
   find(x.post_id);t=asutc(x.scheduled_at)
   if t<=datetime.now(timezone.utc):raise RuntimeError("Scheduled time must be in the future")
   agenda=[i for i in agenda if str(i["post_id"])!=x.post_id];agenda.append({"post_id":int(x.post_id),"scheduled_at":t.isoformat(),"status":"agendado"});save(AGENDA,agenda);print("AGENDADO",x.post_id);return
+ if x.operation=="verificar":
+  token=os.getenv("IG_TOKEN");user=os.getenv("IG_USER_ID")
+  if not token or not user:raise RuntimeError("IG secrets not configured")
+  profile=request("GET",user,token,{"fields":"id,username"})
+  if str(profile.get("id"))!=str(user):raise RuntimeError("Instagram user mismatch")
+  print("INSTAGRAM_OK",profile.get("username",""));return
  if x.operation=="publicar":
   if not x.post_id:raise RuntimeError("post_id required")
   media_id=publish(x.post_id);agenda=[i for i in agenda if str(i["post_id"])!=x.post_id];agenda.append({"post_id":int(x.post_id),"status":"publicado","published_at":datetime.now(timezone.utc).isoformat(),"media_id":media_id});save(AGENDA,agenda);print("PUBLICADO",x.post_id,media_id);return
