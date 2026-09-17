@@ -1,14 +1,13 @@
 [
   {
-    "post_id": 1,
-    "status": "publicado",
-    "published_at": "2026-09-17T05:10:20.731288+00:00",
-    "media_id": "18113827340079349"
-  },
-  {
     "post_id": 2,
     "status": "publicado",
     "published_at": "2026-09-17T14:42:08.660909+00:00",
     "media_id": "18163950649482878"
+  },
+  {
+    "post_id": 1,
+    "scheduled_at": "2026-09-17T15:52:00+00:00",
+    "status": "agendado"
   }
 ]
