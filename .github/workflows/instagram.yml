@@ -1,4 +1,4 @@
-name: Instagram EB
+﻿name: Instagram EB
 on:
   workflow_dispatch:
     inputs:
@@ -42,6 +42,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: "38809152418675604"
         run: python scripts/wait_for_schedule.py --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}"
       - name: Salvar resultado da publicacao
         if: ${{ inputs.operation == 'agendar' || inputs.operation == 'aguardar' }}
