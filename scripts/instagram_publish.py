@@ -1,6 +1,6 @@
 from __future__ import annotations
 import argparse,json,os,time
-from datetime import datetime,timezone
+from datetime import datetime,timezone,timedelta
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request,urlopen
@@ -30,7 +30,7 @@ def publish(pid):
   time.sleep(5)
  raise RuntimeError("Instagram processing timeout")
 def asutc(v):
- d=datetime.fromisoformat(v);return (d if d.tzinfo else d.replace(tzinfo=timezone.utc)).astimezone(timezone.utc)
+ d=datetime.fromisoformat(v);return (d if d.tzinfo else d.replace(tzinfo=timezone(timedelta(hours=-3)))).astimezone(timezone.utc)
 def main():
  a=argparse.ArgumentParser();a.add_argument("--operation",required=True);a.add_argument("--post-id",default="");a.add_argument("--scheduled-at",default="");x=a.parse_args();agenda=load(AGENDA,[])
  if x.operation=="agendar":
