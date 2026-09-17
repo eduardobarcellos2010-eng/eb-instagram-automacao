@@ -56,5 +56,10 @@
     "post_id": 11,
     "scheduled_at": "2026-09-26T21:00:00+00:00",
     "status": "agendado"
+  },
+  {
+    "post_id": 13,
+    "scheduled_at": "2026-09-27T21:00:00+00:00",
+    "status": "agendado"
   }
 ]
