@@ -1,4 +1,4 @@
-name: Instagram EB
+﻿name: Instagram EB
 on:
   workflow_dispatch:
     inputs:
@@ -6,7 +6,7 @@ on:
         description: publicar, agendar ou aguardar
         required: true
         type: choice
-        options: [publicar, agendar, aguardar, verificar, diagnosticar]
+        options: [publicar, agendar, aguardar, verificar, diagnosticar, testar_continuacao]
       post_id:
         required: true
         type: string
@@ -25,29 +25,36 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Executar publicação ou agenda
+      - name: Executar publicacao ou agenda
+        if: ${{ inputs.operation != 'testar_continuacao' }}
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: "38809152418675604"
         run: python scripts/instagram_publish.py --operation "${{ inputs.operation }}" --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}"
       - name: Salvar agenda
         run: |
-          git config user.name 'EB Automação'
+          git config user.name 'EB Automacao'
           git config user.email 'actions@github.com'
           git add automation/agenda.json
           git diff --cached --quiet || git commit -m 'Atualiza agenda do Instagram'
           git push
-      - name: Aguardar horário agendado
+      - name: Testar continuacao automatica
+        if: ${{ inputs.operation == 'testar_continuacao' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/wait_for_schedule.py --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}" --test-dispatch
+      - name: Aguardar horario agendado
         if: ${{ inputs.operation == 'agendar' || inputs.operation == 'aguardar' }}
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python scripts/wait_for_schedule.py --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}"
-      - name: Salvar resultado da publicação
+      - name: Salvar resultado da publicacao
         if: ${{ inputs.operation == 'agendar' || inputs.operation == 'aguardar' }}
         run: |
-          git config user.name 'EB Automação'
+          git config user.name 'EB Automacao'
           git config user.email 'actions@github.com'
           git add automation/agenda.json
-          git diff --cached --quiet || git commit -m 'Registra publicação do Instagram'
+          git diff --cached --quiet || git commit -m 'Registra publicacao do Instagram'
           git push
