@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 import argparse, json, os, subprocess, sys, time
 from datetime import datetime, timezone
 from urllib.request import Request, urlopen
@@ -36,12 +36,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--post-id", required=True)
     parser.add_argument("--scheduled-at", required=True)
-    parser.add_argument("--test-dispatch", action="store_true")
     args = parser.parse_args()
-    if args.test_dispatch:
-        dispatch_next(args.post_id, args.scheduled_at, "diagnosticar")
-        print("TESTE_DE_CONTINUACAO_DISPARADO", args.post_id)
-        return
     due = datetime.fromisoformat(args.scheduled_at).astimezone(timezone.utc)
     remaining = (due - datetime.now(timezone.utc)).total_seconds()
     if remaining > MAX_WAIT_SECONDS:

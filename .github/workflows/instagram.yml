@@ -6,7 +6,7 @@ on:
         description: publicar, agendar ou aguardar
         required: true
         type: choice
-        options: [publicar, agendar, aguardar, verificar, diagnosticar, testar_continuacao]
+        options: [publicar, agendar, aguardar, verificar, diagnosticar]
       post_id:
         required: true
         type: string
@@ -26,7 +26,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Executar publicacao ou agenda
-        if: ${{ inputs.operation != 'testar_continuacao' }}
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: "38809152418675604"
@@ -38,12 +37,6 @@ jobs:
           git add automation/agenda.json
           git diff --cached --quiet || git commit -m 'Atualiza agenda do Instagram'
           git push
-      - name: Testar continuacao automatica
-        if: ${{ inputs.operation == 'testar_continuacao' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python scripts/wait_for_schedule.py --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}" --test-dispatch
       - name: Aguardar horario agendado
         if: ${{ inputs.operation == 'agendar' || inputs.operation == 'aguardar' }}
         env:
