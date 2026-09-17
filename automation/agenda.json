@@ -7,9 +7,8 @@
   },
   {
     "post_id": 2,
-    "scheduled_at": "2026-09-17T15:10:00+00:00",
-    "status": "erro",
-    "failed_at": "2026-09-17T15:10:00.040823+00:00",
-    "last_error": "IG secrets not configured"
+    "status": "publicado",
+    "published_at": "2026-09-17T14:42:08.660909+00:00",
+    "media_id": "18163950649482878"
   }
 ]
