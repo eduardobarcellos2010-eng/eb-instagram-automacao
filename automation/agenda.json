@@ -8,6 +8,8 @@
   {
     "post_id": 1,
     "scheduled_at": "2026-09-17T15:52:00+00:00",
-    "status": "agendado"
+    "status": "publicado",
+    "published_at": "2026-09-17T15:52:00.031220+00:00",
+    "media_id": "17898199026606328"
   }
 ]
