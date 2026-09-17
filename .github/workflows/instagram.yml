@@ -30,12 +30,17 @@ jobs:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: "38809152418675604"
         run: python scripts/instagram_publish.py --operation "${{ inputs.operation }}" --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}"
-      - name: Salvar agenda
+      - name: Salvar agenda quando houver alteracao
         run: |
           git config user.name 'EB Automacao'
           git config user.email 'actions@github.com'
           git add automation/agenda.json
-          git diff --cached --quiet || git commit -m 'Atualiza agenda do Instagram'
+          if git diff --cached --quiet; then
+            echo 'AGENDA_SEM_ALTERACAO'
+            exit 0
+          fi
+          git commit -m 'Atualiza agenda do Instagram'
+          git pull --rebase origin main
           git push
       - name: Aguardar horario agendado
         if: ${{ inputs.operation == 'agendar' || inputs.operation == 'aguardar' }}
@@ -45,11 +50,16 @@ jobs:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: "38809152418675604"
         run: python scripts/wait_for_schedule.py --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}"
-      - name: Salvar resultado da publicacao
+      - name: Salvar resultado quando houver alteracao
         if: ${{ inputs.operation == 'agendar' || inputs.operation == 'aguardar' }}
         run: |
           git config user.name 'EB Automacao'
           git config user.email 'actions@github.com'
           git add automation/agenda.json
-          git diff --cached --quiet || git commit -m 'Registra publicacao do Instagram'
+          if git diff --cached --quiet; then
+            echo 'RESULTADO_SEM_ALTERACAO'
+            exit 0
+          fi
+          git commit -m 'Registra publicacao do Instagram'
+          git pull --rebase origin main
           git push
