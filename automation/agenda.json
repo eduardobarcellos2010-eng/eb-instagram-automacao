@@ -4,10 +4,5 @@
     "status": "publicado",
     "published_at": "2026-09-17T05:10:20.731288+00:00",
     "media_id": "18113827340079349"
-  },
-  {
-    "post_id": 15,
-    "scheduled_at": "2099-12-15T15:00:00+00:00",
-    "status": "agendado"
   }
 ]
