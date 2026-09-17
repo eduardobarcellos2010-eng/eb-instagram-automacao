@@ -16,5 +16,10 @@
     "post_id": 3,
     "scheduled_at": "2026-09-18T21:00:00+00:00",
     "status": "agendado"
+  },
+  {
+    "post_id": 4,
+    "scheduled_at": "2026-09-19T21:00:00+00:00",
+    "status": "agendado"
   }
 ]
