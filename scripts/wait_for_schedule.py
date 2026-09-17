@@ -37,7 +37,7 @@ def main():
     parser.add_argument("--post-id", required=True)
     parser.add_argument("--scheduled-at", required=True)
     args = parser.parse_args()
-    due = datetime.fromisoformat(args.scheduled_at).astimezone(timezone.utc)
+    if not os.getenv("IG_TOKEN") or not os.getenv("IG_USER_ID"):`n        raise RuntimeError("IG secrets not configured")`n    due = datetime.fromisoformat(args.scheduled_at).astimezone(timezone.utc)
     remaining = (due - datetime.now(timezone.utc)).total_seconds()
     if remaining > MAX_WAIT_SECONDS:
         time.sleep(MAX_WAIT_SECONDS)

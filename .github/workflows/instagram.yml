@@ -1,4 +1,4 @@
-﻿name: Instagram EB
+name: Instagram EB
 on:
   workflow_dispatch:
     inputs:
