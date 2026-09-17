@@ -6,7 +6,7 @@ on:
         description: publicar ou agendar
         required: true
         type: choice
-        options: [publicar, agendar, verificar]
+        options: [publicar, agendar, verificar, diagnosticar]
       post_id:
         required: true
         type: string
