@@ -8,6 +8,8 @@
   {
     "post_id": 2,
     "scheduled_at": "2026-09-17T15:10:00+00:00",
-    "status": "agendado"
+    "status": "erro",
+    "failed_at": "2026-09-17T15:10:00.040823+00:00",
+    "last_error": "IG secrets not configured"
   }
 ]
