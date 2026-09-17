@@ -11,5 +11,10 @@
     "status": "publicado",
     "published_at": "2026-09-17T16:28:44.405306+00:00",
     "media_id": "18033935804849441"
+  },
+  {
+    "post_id": 3,
+    "scheduled_at": "2026-09-18T21:00:00+00:00",
+    "status": "agendado"
   }
 ]
