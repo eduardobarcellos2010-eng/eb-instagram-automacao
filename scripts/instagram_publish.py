@@ -1,32 +1,48 @@
 from __future__ import annotations
-import argparse, json, os
-from datetime import datetime
+import argparse,json,os,time
+from datetime import datetime,timezone
 from pathlib import Path
-
-ROOT=Path(__file__).resolve().parents[1]
-AGENDA=ROOT/'automation'/'agenda.json'
-
-def load(): return json.loads(AGENDA.read_text(encoding='utf-8'))
-def save(data): AGENDA.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-
+from urllib.parse import urlencode
+from urllib.request import Request,urlopen
+ROOT=Path(__file__).resolve().parents[1]; AGENDA=ROOT/"automation"/"agenda.json"; POSTS=ROOT/"automation"/"posts.json"; API="https://graph.instagram.com/v23.0"
+def load(p,f): return json.loads(p.read_text(encoding="utf-8")) if p.exists() else f
+def save(p,x): p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+def request(method,path,token,data=None):
+ u=f"{API}/{path.lstrip('/')}"; h={"Authorization":f"Bearer {token}"}; b=None
+ if method=="GET":
+  if data:u+="?"+urlencode(data)
+ else:h["Content-Type"]="application/x-www-form-urlencoded";b=urlencode(data or {}).encode()
+ with urlopen(Request(u,data=b,headers=h,method=method),timeout=60) as r:return json.loads(r.read().decode())
+def find(pid):
+ for p in load(POSTS,[]):
+  if str(p["id"])==str(pid):return p
+ raise RuntimeError("Post not found")
+def publish(pid):
+ token=os.getenv("IG_TOKEN");user=os.getenv("IG_USER_ID")
+ if not token or not user:raise RuntimeError("IG secrets not configured")
+ p=find(pid);kids=[]
+ for image in p["images"]:kids.append(request("POST",f"{user}/media",token,{"image_url":image,"is_carousel_item":"true"})["id"])
+ c=request("POST",f"{user}/media",token,{"media_type":"CAROUSEL","children":",".join(kids),"caption":p["caption"]})["id"]
+ for _ in range(24):
+  s=request("GET",c,token,{"fields":"status_code,status"})
+  if s.get("status_code")=="FINISHED":return request("POST",f"{user}/media_publish",token,{"creation_id":c})["id"]
+  if s.get("status_code")=="ERROR":raise RuntimeError(str(s))
+  time.sleep(5)
+ raise RuntimeError("Instagram processing timeout")
+def asutc(v):
+ d=datetime.fromisoformat(v);return (d if d.tzinfo else d.replace(tzinfo=timezone.utc)).astimezone(timezone.utc)
 def main():
-  p=argparse.ArgumentParser(); p.add_argument('--operation',required=True); p.add_argument('--post-id',default=''); p.add_argument('--scheduled-at',default=''); a=p.parse_args()
-  agenda=load()
-  if a.operation=='agendar':
-    if not a.post_id or not a.scheduled_at: raise SystemExit('post_id e scheduled_at s?o obrigat?rios')
-    datetime.fromisoformat(a.scheduled_at)
-    agenda=[x for x in agenda if str(x['post_id'])!=a.post_id]
-    agenda.append({'post_id':int(a.post_id),'scheduled_at':a.scheduled_at,'status':'agendado'})
-    save(agenda); print('AGENDADO',a.post_id,a.scheduled_at); return
-  if a.operation=='processar':
-    now=datetime.now().strftime('%Y-%m-%dT%H:%M')
-    due=[x for x in agenda if x['status']=='agendado' and x['scheduled_at']<=now]
-    if not due: print('SEM_PUBLICACOES_PENDENTES'); return
-    # A publica??o real ser? adicionada ap?s o primeiro teste de agenda confirmado.
-    for item in due: item['status']='pronto_para_publicar'
-    save(agenda); print('PENDENTES_MARCADOS',len(due)); return
-  if a.operation=='publicar':
-    if not os.getenv('IG_TOKEN') or not os.getenv('IG_USER_ID'): raise SystemExit('Segredos IG_TOKEN e IG_USER_ID n?o configurados')
-    raise SystemExit('Publica??o direta ser? habilitada ap?s a valida??o do teste de agenda')
-  raise SystemExit('Opera??o inv?lida')
-if __name__=='__main__': main()
+ a=argparse.ArgumentParser();a.add_argument("--operation",required=True);a.add_argument("--post-id",default="");a.add_argument("--scheduled-at",default="");x=a.parse_args();agenda=load(AGENDA,[])
+ if x.operation=="agendar":
+  if not x.post_id or not x.scheduled_at:raise RuntimeError("post_id and scheduled_at required")
+  find(x.post_id);t=asutc(x.scheduled_at);agenda=[i for i in agenda if str(i["post_id"])!=x.post_id];agenda.append({"post_id":int(x.post_id),"scheduled_at":t.isoformat(),"status":"agendado"});save(AGENDA,agenda);print("AGENDADO",x.post_id);return
+ if x.operation=="publicar":print("PUBLICADO",x.post_id,publish(x.post_id));return
+ now=datetime.now(timezone.utc);changed=False
+ for i in agenda:
+  if i.get("status")=="agendado" and asutc(i["scheduled_at"])<=now:
+   try:i.update({"status":"publicado","published_at":now.isoformat(),"media_id":publish(i["post_id"])})
+   except Exception as e:i.update({"status":"erro","failed_at":now.isoformat(),"last_error":str(e)})
+   changed=True
+ if changed:save(AGENDA,agenda)
+ print("PROCESSADO" if changed else "SEM_PUBLICACOES_PENDENTES")
+if __name__=="__main__":main()
