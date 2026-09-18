@@ -58,7 +58,15 @@ def main():
   print("INSTAGRAM_OK",profile.get("username",""));return
  if x.operation=="publicar":
   if not x.post_id:raise RuntimeError("post_id required")
-  media_id=publish(x.post_id);agenda=[i for i in agenda if str(i["post_id"])!=x.post_id];agenda.append({"post_id":int(x.post_id),"status":"publicado","published_at":datetime.now(timezone.utc).isoformat(),"media_id":media_id});save(AGENDA,agenda);print("PUBLICADO",x.post_id,media_id);return
+  existing=next((i for i in agenda if str(i["post_id"])==str(x.post_id)),None)
+  if existing and existing.get("status")=="publicado":
+   print("JA_PUBLICADO",x.post_id,existing.get("media_id",""));return
+  media_id=publish(x.post_id)
+  if existing is None:
+   existing={"post_id":int(x.post_id)};agenda.append(existing)
+  existing.update({"status":"publicado","published_at":datetime.now(timezone.utc).isoformat(),"media_id":media_id})
+  for key in ("attempts","last_error","last_attempt_at"):existing.pop(key,None)
+  save(AGENDA,agenda);print("PUBLICADO",x.post_id,media_id);return
  now=datetime.now(timezone.utc);changed=False
  for i in agenda:
   if i.get("status")=="agendado" and asutc(i["scheduled_at"])<=now:
