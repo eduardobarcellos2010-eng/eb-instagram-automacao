@@ -18,6 +18,8 @@ on:
     # 18:00 BRT, com duas reservas caso o GitHub atrase a primeira execucao.
     - cron: '0,5,15,30,45 21 * * *'
     - cron: '0 22 * * *'
+    # teste temporario seguro: nao ha item vencido antes das 18h.
+    - cron: '*/5 * * * *'
 permissions:
   contents: write
 concurrency:
