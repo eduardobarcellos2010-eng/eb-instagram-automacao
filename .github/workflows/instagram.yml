@@ -3,20 +3,25 @@ on:
   workflow_dispatch:
     inputs:
       operation:
-        description: publicar, agendar ou aguardar
+        description: publicar, agendar, processar ou verificar
         required: true
         type: choice
-        options: [publicar, agendar, aguardar, verificar, diagnosticar]
+        options: [publicar, agendar, processar, verificar, diagnosticar]
       post_id:
-        required: true
+        required: false
         type: string
       scheduled_at:
         description: YYYY-MM-DDTHH:MM (America/Sao_Paulo)
         required: false
         type: string
+  schedule:
+    # 18:00 BRT, com duas reservas caso o GitHub atrase a primeira execucao.
+    - cron: '0,5,15 21 * * *'
 permissions:
-  actions: write
   contents: write
+concurrency:
+  group: instagram-agenda
+  cancel-in-progress: false
 jobs:
   executar:
     runs-on: ubuntu-latest
@@ -29,8 +34,13 @@ jobs:
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: "38809152418675604"
-        run: python scripts/instagram_publish.py --operation "${{ inputs.operation }}" --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}"
-      - name: Salvar agenda quando houver alteracao
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            python scripts/instagram_publish.py --operation processar
+          else
+            python scripts/instagram_publish.py --operation "${{ inputs.operation }}" --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}"
+          fi
+      - name: Salvar alteracao de agenda
         run: |
           git config user.name 'EB Automacao'
           git config user.email 'actions@github.com'
@@ -40,26 +50,11 @@ jobs:
             exit 0
           fi
           git commit -m 'Atualiza agenda do Instagram'
-          git pull --rebase origin main
-          git push
-      - name: Aguardar horario agendado
-        if: ${{ inputs.operation == 'agendar' || inputs.operation == 'aguardar' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          IG_TOKEN: ${{ secrets.IG_TOKEN }}
-          IG_USER_ID: "38809152418675604"
-        run: python scripts/wait_for_schedule.py --post-id "${{ inputs.post_id }}" --scheduled-at "${{ inputs.scheduled_at }}"
-      - name: Salvar resultado quando houver alteracao
-        if: ${{ inputs.operation == 'agendar' || inputs.operation == 'aguardar' }}
-        run: |
-          git config user.name 'EB Automacao'
-          git config user.email 'actions@github.com'
-          git add automation/agenda.json
-          if git diff --cached --quiet; then
-            echo 'RESULTADO_SEM_ALTERACAO'
-            exit 0
-          fi
-          git commit -m 'Registra publicacao do Instagram'
-          git pull --rebase origin main
-          git push
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push; then
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep 3
+          done
+          exit 1
