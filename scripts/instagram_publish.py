@@ -50,11 +50,16 @@ def main():
   if not token or not user:raise RuntimeError("IG secrets not configured")
   profile=request("GET",user,token,{"fields":"id,username"})
   print("INSTAGRAM_PROFILE",profile.get("id",""),profile.get("username",""));return
- if x.operation=="verificar":
+ if x.operation in {"verificar","validar_agendador"}:
   token=os.getenv("IG_TOKEN");user=os.getenv("IG_USER_ID")
   if not token or not user:raise RuntimeError("IG secrets not configured")
   profile=request("GET",user,token,{"fields":"id,username"})
   if str(profile.get("id"))!=str(user):raise RuntimeError("Instagram user mismatch")
+  if x.operation=="validar_agendador":
+   existing=next((i for i in agenda if str(i.get("post_id"))==str(x.post_id)),None)
+   if not existing:raise RuntimeError("Scheduler test record not found")
+   existing.update({"status":"testado","tested_at":datetime.now(timezone.utc).isoformat()})
+   save(AGENDA,agenda)
   print("INSTAGRAM_OK",profile.get("username",""));return
  if x.operation=="publicar":
   if not x.post_id:raise RuntimeError("post_id required")
