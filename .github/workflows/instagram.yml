@@ -15,8 +15,6 @@ on:
         required: false
         type: string
   schedule:
-    # TESTE TEMPORARIO: sera removido apos uma execucao automatica validada.
-    - cron: '*/5 * * * *'
     # 18:00 BRT, com duas reservas caso o GitHub atrase a primeira execucao.
     - cron: '0,5,15 21 * * *'
 permissions:
