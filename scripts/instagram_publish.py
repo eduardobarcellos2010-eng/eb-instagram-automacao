@@ -62,8 +62,12 @@ def main():
  now=datetime.now(timezone.utc);changed=False
  for i in agenda:
   if i.get("status")=="agendado" and asutc(i["scheduled_at"])<=now:
-   try:i.update({"status":"publicado","published_at":now.isoformat(),"media_id":publish(i["post_id"])})
-   except Exception as e:i.update({"status":"erro","failed_at":now.isoformat(),"last_error":str(e)})
+   try:
+    i.update({"status":"publicado","published_at":now.isoformat(),"media_id":publish(i["post_id"])})
+    for key in ("attempts","last_error","last_attempt_at"):i.pop(key,None)
+   except Exception as e:
+    i.update({"status":"agendado","attempts":int(i.get("attempts",0))+1,"last_attempt_at":now.isoformat(),"last_error":str(e)})
+    print("TENTATIVA_FALHOU",i["post_id"],str(e))
    changed=True
  if changed:save(AGENDA,agenda)
  print("PROCESSADO" if changed else "SEM_PUBLICACOES_PENDENTES")
