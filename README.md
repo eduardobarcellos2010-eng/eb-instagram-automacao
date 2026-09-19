@@ -1,5 +1,23 @@
-# EB Instagram Automação
+﻿# EB Instagram Automação
 
-Este repositório será usado para publicar os carrosséis aprovados sem depender do computador ligado.
+Este repositório reúne os carrosséis aprovados, as imagens de publicação, as copies e a agenda do Instagram **@eduardobarcellos**.
 
-Antes da primeira publicação, serão configurados no GitHub os segredos `IG_ACCESS_TOKEN`, `IG_USER_ID` e `PUBLIC_ASSETS_BASE_URL`. As imagens finais dos carrosséis ficarão em `assets/` e as datas em `agenda.json`.
+## Como a publicação funciona
+
+- O painel privado é usado para revisar, agendar ou publicar um carrossel.
+- A agenda oficial fica em `automation/agenda.json`.
+- A automação na Cloudflare verifica a agenda a cada minuto, sem depender do computador ligado.
+- Para cada post pendente, ela dispara o workflow do GitHub uma única vez por ciclo de cinco minutos.
+- Se a Meta devolver um erro temporário, a tentativa fica registrada na agenda e o sistema tenta novamente automaticamente.
+- O workflow registra o ID da publicação ao concluir.
+
+## Fonte de verdade
+
+- Conteúdo e copy: `automation/posts.json`
+- Agenda e histórico: `automation/agenda.json`
+- Imagens publicáveis: `dashboard/instagram-assets/`
+- Pré-visualizações: `dashboard/carrosseis/`
+
+## Regra de publicação
+
+Publique apenas imagens finais, em 1080 × 1350, que tenham sido revisadas na prancha de validação. Cada URL de imagem precisa responder publicamente antes do agendamento.
