@@ -22,7 +22,9 @@
   {
     "post_id": 4,
     "scheduled_at": "2026-09-19T21:00:00+00:00",
-    "status": "agendado"
+    "status": "publicado",
+    "published_at": "2026-09-19T22:40:42.841831+00:00",
+    "media_id": "18101090429627179"
   },
   {
     "post_id": 5,
