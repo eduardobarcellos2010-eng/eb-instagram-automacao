@@ -191,6 +191,13 @@ def main():
         print("PUBLICADO", args.post_id, media_id)
         return
 
+    if args.operation == "publicar_teste":
+        if not args.post_id:
+            raise RuntimeError("post_id required")
+        media_id = publish(args.post_id)
+        print("PUBLICADO_TESTE", args.post_id, media_id)
+        return
+
     now = datetime.now(timezone.utc)
     changed = False
     for item in agenda:
