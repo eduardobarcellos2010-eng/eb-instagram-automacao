@@ -83,14 +83,6 @@
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
   },
   {
-    "post_id": 11,
-    "scheduled_at": "2026-09-27T21:00:00Z",
-    "status": "agendado",
-    "source": "carrossel_editorial_aprovado",
-    "timezone_reference": "America/Sao_Paulo 18:00 UTC-03",
-    "note": "Agendamento mantido ativo após publicação de teste manual em 2026-09-27."
-  },
-  {
     "post_id": 112,
     "scheduled_at": "2026-09-28T21:00:00.000Z",
     "status": "cancelado",
