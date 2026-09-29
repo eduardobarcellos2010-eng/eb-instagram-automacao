@@ -108,9 +108,11 @@
   {
     "post_id": 13,
     "scheduled_at": "2026-09-29T21:00:00Z",
-    "status": "agendado",
+    "status": "publicado",
     "source": "carrossel_editorial_aprovado",
-    "timezone_reference": "America/Sao_Paulo 18:00 UTC-03"
+    "timezone_reference": "America/Sao_Paulo 18:00 UTC-03",
+    "published_at": "2026-09-29T21:01:15.125636+00:00",
+    "media_id": "18190742695403493"
   },
   {
     "post_id": 114,
