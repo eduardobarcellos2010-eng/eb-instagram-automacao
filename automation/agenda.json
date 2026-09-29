@@ -1,16 +1,16 @@
 [
   {
+    "post_id": 2,
+    "status": "publicado",
+    "published_at": "2026-09-17T16:28:44.405306+00:00",
+    "media_id": "18033935804849441"
+  },
+  {
     "post_id": 1,
     "scheduled_at": "2026-09-17T15:52:00+00:00",
     "status": "publicado",
     "published_at": "2026-09-17T15:52:00.031220+00:00",
     "media_id": "17898199026606328"
-  },
-  {
-    "post_id": 2,
-    "status": "publicado",
-    "published_at": "2026-09-17T16:28:44.405306+00:00",
-    "media_id": "18033935804849441"
   },
   {
     "post_id": 3,
@@ -90,29 +90,11 @@
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
   },
   {
-    "post_id": 12,
-    "scheduled_at": "2026-09-28T21:00:00Z",
-    "status": "publicado",
-    "source": "carrossel_editorial_aprovado",
-    "timezone_reference": "America/Sao_Paulo 18:00 UTC-03",
-    "published_at": "2026-09-28T21:01:16.618531+00:00",
-    "media_id": "17912764071281949"
-  },
-  {
     "post_id": 113,
     "scheduled_at": "2026-09-29T21:00:00.000Z",
     "status": "cancelado",
     "cancelled_at": "2026-09-27T14:47:46.8953879Z",
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
-  },
-  {
-    "post_id": 13,
-    "scheduled_at": "2026-09-29T21:00:00Z",
-    "status": "publicado",
-    "source": "carrossel_editorial_aprovado",
-    "timezone_reference": "America/Sao_Paulo 18:00 UTC-03",
-    "published_at": "2026-09-29T21:01:15.125636+00:00",
-    "media_id": "18190742695403493"
   },
   {
     "post_id": 114,
@@ -122,13 +104,6 @@
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
   },
   {
-    "post_id": 14,
-    "scheduled_at": "2026-09-30T21:00:00Z",
-    "status": "agendado",
-    "source": "carrossel_editorial_aprovado",
-    "timezone_reference": "America/Sao_Paulo 18:00 UTC-03"
-  },
-  {
     "post_id": 115,
     "scheduled_at": "2026-10-01T21:00:00.000Z",
     "status": "cancelado",
@@ -136,10 +111,38 @@
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
   },
   {
+    "post_id": 11,
+    "scheduled_at": "2026-09-27T21:00:00Z",
+    "status": "cancelado",
+    "cancelled_at": "2026-09-29T00:00:00Z",
+    "cancel_reason": "Cancelado a pedido do Eduardo. Nenhuma publicação desta sequência deve ser executada."
+  },
+  {
+    "post_id": 12,
+    "scheduled_at": "2026-09-28T21:00:00Z",
+    "status": "cancelado",
+    "cancelled_at": "2026-09-29T00:00:00Z",
+    "cancel_reason": "Cancelado a pedido do Eduardo. Nenhuma publicação desta sequência deve ser executada."
+  },
+  {
+    "post_id": 13,
+    "scheduled_at": "2026-09-29T21:00:00Z",
+    "status": "cancelado",
+    "cancelled_at": "2026-09-29T00:00:00Z",
+    "cancel_reason": "Cancelado a pedido do Eduardo. Nenhuma publicação desta sequência deve ser executada."
+  },
+  {
+    "post_id": 14,
+    "scheduled_at": "2026-09-30T21:00:00Z",
+    "status": "cancelado",
+    "cancelled_at": "2026-09-29T00:00:00Z",
+    "cancel_reason": "Cancelado a pedido do Eduardo. Nenhuma publicação desta sequência deve ser executada."
+  },
+  {
     "post_id": 15,
     "scheduled_at": "2026-10-01T21:00:00Z",
-    "status": "agendado",
-    "source": "carrossel_editorial_aprovado",
-    "timezone_reference": "America/Sao_Paulo 18:00 UTC-03"
+    "status": "cancelado",
+    "cancelled_at": "2026-09-29T00:00:00Z",
+    "cancel_reason": "Cancelado a pedido do Eduardo. Nenhuma publicação desta sequência deve ser executada."
   }
 ]
