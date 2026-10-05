@@ -144,5 +144,11 @@
     "status": "cancelado",
     "cancelled_at": "2026-09-29T00:00:00Z",
     "cancel_reason": "Cancelado a pedido do Eduardo. Nenhuma publicação desta sequência deve ser executada."
+  },
+  {
+    "post_id": 201,
+    "status": "publicado",
+    "published_at": "2026-10-05T23:59:05.365070+00:00",
+    "media_id": "18138377482621431"
   }
 ]
