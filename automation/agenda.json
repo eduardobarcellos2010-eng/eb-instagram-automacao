@@ -162,5 +162,10 @@
     "status": "publicado",
     "published_at": "2026-10-13T14:32:13.064549+00:00",
     "media_id": "17874175770638706"
+  },
+  {
+    "post_id": 117,
+    "scheduled_at": "2026-10-19T20:44:17.057337+00:00",
+    "status": "agendado"
   }
 ]
