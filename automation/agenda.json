@@ -166,6 +166,8 @@
   {
     "post_id": 117,
     "scheduled_at": "2026-10-19T20:44:17.057337+00:00",
-    "status": "agendado"
+    "status": "publicado",
+    "published_at": "2026-10-19T20:45:45.294392+00:00",
+    "media_id": "18107945645192864"
   }
 ]
