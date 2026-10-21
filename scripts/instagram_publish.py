@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 import time
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlencode
@@ -58,6 +59,23 @@ def validate_post(post):
         raise RuntimeError("Carousel must contain between 2 and 10 images")
     if not all(isinstance(image, str) and image.startswith("https://") for image in images):
         raise RuntimeError("Every carousel image must use a public HTTPS URL")
+    names = [image.split("?", 1)[0].rsplit("/", 1)[-1] for image in images]
+    numbers = []
+    for name in names:
+        match = re.search(r"(?:slide[-_]?|carrossel[-_]?)(\\d+)", name, re.I)
+        if not match:
+            raise RuntimeError(f"Image filename has no slide number: {name}")
+        numbers.append(int(match.group(1)))
+    if numbers != list(range(1, len(images) + 1)):
+        raise RuntimeError(f"Carousel images must be ordered 01..{len(images)}; got {numbers}")
+    for image in images:
+        try:
+            with urlopen(Request(image, method="HEAD", headers={"User-Agent": "EB-Instagram-Automation/1.0"}), timeout=20) as response:
+                content_type = response.headers.get("Content-Type", "")
+                if response.status != 200 or "image/" not in content_type:
+                    raise RuntimeError(f"Image is not public PNG/JPEG: {image}")
+        except Exception as exc:
+            raise RuntimeError(f"Image preflight failed: {image} ({exc})") from exc
 
 
 def find(post_id):
@@ -203,6 +221,8 @@ def main():
     for item in agenda:
         if item.get("status") == "agendado" and asutc(item["scheduled_at"]) <= now:
             try:
+                item.update({"status": "publicando", "last_attempt_at": now.isoformat()})
+                save(AGENDA, agenda)
                 item.update({"status": "publicado", "published_at": now.isoformat(), "media_id": publish(item["post_id"])})
                 for key in ("attempts", "last_error", "last_attempt_at"):
                     item.pop(key, None)
