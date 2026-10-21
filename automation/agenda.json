@@ -166,8 +166,71 @@
   {
     "post_id": 117,
     "scheduled_at": "2026-10-19T20:44:17.057337+00:00",
-    "status": "publicado",
-    "published_at": "2026-10-19T20:45:45.294392+00:00",
-    "media_id": "18107945645192864"
+    "status": "cancelado",
+    "cancelled_at": "2026-10-20T00:00:00+00:00",
+    "cancel_reason": "Substituído pelo calendário editorial de sete carrosséis aprovado em 20/10/2026."
+  },
+  {
+    "post_id": 301,
+    "source_code": "EB-F3",
+    "scheduled_at": "2026-10-23T18:00:00-03:00",
+    "timezone": "America/Sao_Paulo",
+    "status": "agendado",
+    "validated_at": "2026-10-20T00:00:00+00:00",
+    "slide_count": 7
+  },
+  {
+    "post_id": 302,
+    "source_code": "EB-12",
+    "scheduled_at": "2026-10-27T18:00:00-03:00",
+    "timezone": "America/Sao_Paulo",
+    "status": "agendado",
+    "validated_at": "2026-10-20T00:00:00+00:00",
+    "slide_count": 7
+  },
+  {
+    "post_id": 303,
+    "source_code": "EB-14",
+    "scheduled_at": "2026-10-31T18:00:00-03:00",
+    "timezone": "America/Sao_Paulo",
+    "status": "agendado",
+    "validated_at": "2026-10-20T00:00:00+00:00",
+    "slide_count": 7
+  },
+  {
+    "post_id": 304,
+    "source_code": "EB-16",
+    "scheduled_at": "2026-11-03T18:00:00-03:00",
+    "timezone": "America/Sao_Paulo",
+    "status": "agendado",
+    "validated_at": "2026-10-20T00:00:00+00:00",
+    "slide_count": 7
+  },
+  {
+    "post_id": 305,
+    "source_code": "EB-18",
+    "scheduled_at": "2026-11-07T18:00:00-03:00",
+    "timezone": "America/Sao_Paulo",
+    "status": "agendado",
+    "validated_at": "2026-10-20T00:00:00+00:00",
+    "slide_count": 7
+  },
+  {
+    "post_id": 306,
+    "source_code": "EB-10",
+    "scheduled_at": "2026-11-11T18:00:00-03:00",
+    "timezone": "America/Sao_Paulo",
+    "status": "agendado",
+    "validated_at": "2026-10-20T00:00:00+00:00",
+    "slide_count": 7
+  },
+  {
+    "post_id": 307,
+    "source_code": "EB-08",
+    "scheduled_at": "2026-11-15T18:00:00-03:00",
+    "timezone": "America/Sao_Paulo",
+    "status": "agendado",
+    "validated_at": "2026-10-20T00:00:00+00:00",
+    "slide_count": 7
   }
 ]
