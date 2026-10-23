@@ -178,8 +178,8 @@
     "status": "agendado",
     "validated_at": "2026-10-20T00:00:00+00:00",
     "slide_count": 7,
-    "last_attempt_at": "2026-10-23T21:59:13.163789+00:00",
-    "attempts": 11,
+    "last_attempt_at": "2026-10-23T22:05:12.615367+00:00",
+    "attempts": 12,
     "last_error": "Image filename has no slide number: eb-f3-eduardo-15-anos-milhas-carrossel-01.png"
   },
   {
