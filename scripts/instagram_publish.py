@@ -62,7 +62,7 @@ def validate_post(post):
     names = [image.split("?", 1)[0].rsplit("/", 1)[-1] for image in images]
     numbers = []
     for name in names:
-        match = re.search(r"(?:slide[-_]?|carrossel[-_]?)(\\d+)", name, re.I)
+        match = re.search(r"(?:slide[-_]?|carrossel[-_]?)(\d+)", name, re.I)
         if not match:
             raise RuntimeError(f"Image filename has no slide number: {name}")
         numbers.append(int(match.group(1)))
