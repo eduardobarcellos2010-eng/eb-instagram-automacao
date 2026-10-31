@@ -197,9 +197,11 @@
     "source_code": "EB-14",
     "scheduled_at": "2026-10-31T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
-    "status": "agendado",
+    "status": "publicado",
     "validated_at": "2026-10-20T00:00:00+00:00",
-    "slide_count": 7
+    "slide_count": 7,
+    "published_at": "2026-10-31T21:00:13.927289+00:00",
+    "media_id": "18098446721556716"
   },
   {
     "post_id": 304,
