@@ -208,9 +208,11 @@
     "source_code": "EB-16",
     "scheduled_at": "2026-11-03T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
-    "status": "agendado",
+    "status": "publicado",
     "validated_at": "2026-10-20T00:00:00+00:00",
-    "slide_count": 7
+    "slide_count": 7,
+    "published_at": "2026-11-03T21:00:33.548128+00:00",
+    "media_id": "18065351216526984"
   },
   {
     "post_id": 305,
