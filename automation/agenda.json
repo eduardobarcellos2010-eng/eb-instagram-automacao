@@ -221,7 +221,10 @@
     "timezone": "America/Sao_Paulo",
     "status": "agendado",
     "validated_at": "2026-10-20T00:00:00+00:00",
-    "slide_count": 7
+    "slide_count": 7,
+    "last_attempt_at": "2026-11-07T21:00:13.460233+00:00",
+    "attempts": 1,
+    "last_error": "HTTP Error 401: Unauthorized"
   },
   {
     "post_id": 306,
