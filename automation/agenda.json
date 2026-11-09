@@ -222,9 +222,9 @@
     "status": "agendado",
     "validated_at": "2026-10-20T00:00:00+00:00",
     "slide_count": 7,
-    "last_attempt_at": "2026-11-09T07:03:12.811744+00:00",
-    "attempts": 355,
-    "last_error": "HTTP Error 401: Unauthorized"
+    "last_attempt_at": "2026-11-09T07:09:12.503843+00:00",
+    "attempts": 356,
+    "last_error": "Image preflight failed: https://eduardobarcellos2010-eng.github.io/eb-instagram-automacao/instagram-assets/eb-18-eduardo-gestao-de-viagens-carrossel-07.png (HTTP Error 503: Service Unavailable)"
   },
   {
     "post_id": 306,
