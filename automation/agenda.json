@@ -222,8 +222,8 @@
     "status": "agendado",
     "validated_at": "2026-10-20T00:00:00+00:00",
     "slide_count": 7,
-    "last_attempt_at": "2026-11-10T09:38:14.748035+00:00",
-    "attempts": 632,
+    "last_attempt_at": "2026-11-10T09:43:15.261774+00:00",
+    "attempts": 633,
     "last_error": "HTTP Error 401: Unauthorized"
   },
   {
