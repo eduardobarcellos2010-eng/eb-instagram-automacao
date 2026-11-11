@@ -2,110 +2,110 @@
   {
     "post_id": 2,
     "status": "publicado",
-    "published_at": "2026-09-17T16:28:44.405306+00:00",
+    "published_at": "2026-09-17T13:28:44.405306-03:00",
     "media_id": "18033935804849441"
   },
   {
     "post_id": 1,
-    "scheduled_at": "2026-09-17T15:52:00+00:00",
+    "scheduled_at": "2026-09-17T12:52:00-03:00",
     "status": "publicado",
-    "published_at": "2026-09-17T15:52:00.031220+00:00",
+    "published_at": "2026-09-17T12:52:00.03122-03:00",
     "media_id": "17898199026606328"
   },
   {
     "post_id": 3,
-    "scheduled_at": "2026-09-18T21:00:00+00:00",
+    "scheduled_at": "2026-09-18T18:00:00-03:00",
     "status": "publicado",
-    "published_at": "2026-09-18T21:01:17.220417+00:00",
+    "published_at": "2026-09-18T18:01:17.220417-03:00",
     "media_id": "18088961513474123"
   },
   {
     "post_id": 4,
-    "scheduled_at": "2026-09-19T21:00:00+00:00",
+    "scheduled_at": "2026-09-19T18:00:00-03:00",
     "status": "publicado",
-    "published_at": "2026-09-19T22:40:42.841831+00:00",
+    "published_at": "2026-09-19T19:40:42.841831-03:00",
     "media_id": "18101090429627179"
   },
   {
     "post_id": 5,
-    "scheduled_at": "2026-09-20T21:00:00+00:00",
+    "scheduled_at": "2026-09-20T18:00:00-03:00",
     "status": "publicado",
-    "published_at": "2026-09-20T21:00:33.823632+00:00",
+    "published_at": "2026-09-20T18:00:33.823632-03:00",
     "media_id": "18115997206830457"
   },
   {
     "post_id": 105,
-    "scheduled_at": "2026-09-21T19:57:03.520Z",
+    "scheduled_at": "2026-09-21T19:57:03.52Z",
     "status": "publicado",
-    "published_at": "2026-09-21T19:58:34.042147+00:00",
+    "published_at": "2026-09-21T16:58:34.042147-03:00",
     "media_id": "17909880156471730"
   },
   {
     "post_id": 106,
-    "scheduled_at": "2026-09-22T21:00:00.000Z",
+    "scheduled_at": "2026-09-22T21:00:00Z",
     "status": "publicado",
-    "published_at": "2026-09-22T21:00:36.934937+00:00",
+    "published_at": "2026-09-22T18:00:36.934937-03:00",
     "media_id": "18030545579896571"
   },
   {
     "post_id": 107,
-    "scheduled_at": "2026-09-23T21:00:00.000Z",
+    "scheduled_at": "2026-09-23T21:00:00Z",
     "status": "publicado",
-    "published_at": "2026-09-23T21:00:40.796450+00:00",
+    "published_at": "2026-09-23T18:00:40.79645-03:00",
     "media_id": "17988798653858915"
   },
   {
     "post_id": 108,
-    "scheduled_at": "2026-09-24T21:00:00.000Z",
+    "scheduled_at": "2026-09-24T21:00:00Z",
     "status": "publicado",
-    "published_at": "2026-09-24T21:00:41.776635+00:00",
+    "published_at": "2026-09-24T18:00:41.776635-03:00",
     "media_id": "18031194800846569"
   },
   {
     "post_id": 109,
-    "scheduled_at": "2026-09-25T21:00:00.000Z",
+    "scheduled_at": "2026-09-25T21:00:00Z",
     "status": "publicado",
-    "published_at": "2026-09-25T21:00:49.685502+00:00",
+    "published_at": "2026-09-25T18:00:49.685502-03:00",
     "media_id": "18059309663795689"
   },
   {
     "post_id": 110,
-    "scheduled_at": "2026-09-26T21:00:00.000Z",
+    "scheduled_at": "2026-09-26T21:00:00Z",
     "status": "publicado",
-    "published_at": "2026-09-26T21:01:12.613087+00:00",
+    "published_at": "2026-09-26T18:01:12.613087-03:00",
     "media_id": "18127977838762556"
   },
   {
     "post_id": 111,
-    "scheduled_at": "2026-09-27T21:00:00.000Z",
+    "scheduled_at": "2026-09-27T21:00:00Z",
     "status": "cancelado",
     "cancelled_at": "2026-09-27T14:47:46.8697908Z",
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
   },
   {
     "post_id": 112,
-    "scheduled_at": "2026-09-28T21:00:00.000Z",
+    "scheduled_at": "2026-09-28T21:00:00Z",
     "status": "cancelado",
     "cancelled_at": "2026-09-27T14:47:46.8920242Z",
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
   },
   {
     "post_id": 113,
-    "scheduled_at": "2026-09-29T21:00:00.000Z",
+    "scheduled_at": "2026-09-29T21:00:00Z",
     "status": "cancelado",
     "cancelled_at": "2026-09-27T14:47:46.8953879Z",
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
   },
   {
     "post_id": 114,
-    "scheduled_at": "2026-09-30T21:00:00.000Z",
+    "scheduled_at": "2026-09-30T21:00:00Z",
     "status": "cancelado",
     "cancelled_at": "2026-09-27T14:47:46.8979093Z",
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
   },
   {
     "post_id": 115,
-    "scheduled_at": "2026-10-01T21:00:00.000Z",
+    "scheduled_at": "2026-10-01T21:00:00Z",
     "status": "cancelado",
     "cancelled_at": "2026-09-27T14:47:46.9009184Z",
     "cancel_reason": "Cancelado a pedido do Eduardo para transformar em outro tipo de carrossel antes de publicar."
@@ -148,26 +148,26 @@
   {
     "post_id": 201,
     "status": "publicado",
-    "published_at": "2026-10-05T23:59:05.365070+00:00",
+    "published_at": "2026-10-05T20:59:05.36507-03:00",
     "media_id": "18138377482621431"
   },
   {
     "post_id": 202,
     "status": "publicado",
-    "published_at": "2026-10-06T00:38:06.641960+00:00",
+    "published_at": "2026-10-05T21:38:06.64196-03:00",
     "media_id": "18420746701159704"
   },
   {
     "post_id": 203,
     "status": "publicado",
-    "published_at": "2026-10-13T14:32:13.064549+00:00",
+    "published_at": "2026-10-13T11:32:13.064549-03:00",
     "media_id": "17874175770638706"
   },
   {
     "post_id": 117,
-    "scheduled_at": "2026-10-19T20:44:17.057337+00:00",
+    "scheduled_at": "2026-10-19T17:44:17.057337-03:00",
     "status": "cancelado",
-    "cancelled_at": "2026-10-20T00:00:00+00:00",
+    "cancelled_at": "2026-10-19T21:00:00-03:00",
     "cancel_reason": "Substituído pelo calendário editorial de sete carrosséis aprovado em 20/10/2026."
   },
   {
@@ -176,9 +176,9 @@
     "scheduled_at": "2026-10-23T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
     "status": "publicado",
-    "validated_at": "2026-10-20T00:00:00+00:00",
+    "validated_at": "2026-10-19T21:00:00-03:00",
     "slide_count": 7,
-    "published_at": "2026-10-23T23:08:15.722187+00:00",
+    "published_at": "2026-10-23T20:08:15.722187-03:00",
     "media_id": "18636936670063257"
   },
   {
@@ -187,9 +187,9 @@
     "scheduled_at": "2026-10-27T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
     "status": "publicado",
-    "validated_at": "2026-10-20T00:00:00+00:00",
+    "validated_at": "2026-10-19T21:00:00-03:00",
     "slide_count": 7,
-    "published_at": "2026-10-27T21:00:17.165465+00:00",
+    "published_at": "2026-10-27T18:00:17.165465-03:00",
     "media_id": "18101144366434693"
   },
   {
@@ -198,9 +198,9 @@
     "scheduled_at": "2026-10-31T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
     "status": "publicado",
-    "validated_at": "2026-10-20T00:00:00+00:00",
+    "validated_at": "2026-10-19T21:00:00-03:00",
     "slide_count": 7,
-    "published_at": "2026-10-31T21:00:13.927289+00:00",
+    "published_at": "2026-10-31T18:00:13.927289-03:00",
     "media_id": "18098446721556716"
   },
   {
@@ -209,9 +209,9 @@
     "scheduled_at": "2026-11-03T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
     "status": "publicado",
-    "validated_at": "2026-10-20T00:00:00+00:00",
+    "validated_at": "2026-10-19T21:00:00-03:00",
     "slide_count": 7,
-    "published_at": "2026-11-03T21:00:33.548128+00:00",
+    "published_at": "2026-11-03T18:00:33.548128-03:00",
     "media_id": "18065351216526984"
   },
   {
@@ -220,23 +220,20 @@
     "scheduled_at": "2026-11-07T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
     "status": "agendado",
-    "validated_at": "2026-10-20T00:00:00+00:00",
+    "validated_at": "2026-10-19T21:00:00-03:00",
     "slide_count": 7,
-    "last_attempt_at": "2026-11-11T22:13:35.179794+00:00",
+    "last_attempt_at": "2026-11-11T19:13:35.179794-03:00",
     "attempts": 1013,
     "last_error": "HTTP Error 401: Unauthorized"
   },
   {
     "post_id": 306,
     "source_code": "EB-10",
-    "scheduled_at": "2026-11-11T18:00:00-03:00",
+    "scheduled_at": "2026-11-13T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
     "status": "agendado",
-    "validated_at": "2026-10-20T00:00:00+00:00",
-    "slide_count": 7,
-    "last_attempt_at": "2026-11-11T22:13:35.179794+00:00",
-    "attempts": 19,
-    "last_error": "HTTP Error 401: Unauthorized"
+    "validated_at": "2026-10-19T21:00:00-03:00",
+    "slide_count": 7
   },
   {
     "post_id": 307,
@@ -244,7 +241,7 @@
     "scheduled_at": "2026-11-15T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
     "status": "agendado",
-    "validated_at": "2026-10-20T00:00:00+00:00",
+    "validated_at": "2026-10-19T21:00:00-03:00",
     "slide_count": 7
   }
 ]
