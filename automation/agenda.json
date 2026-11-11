@@ -222,8 +222,8 @@
     "status": "agendado",
     "validated_at": "2026-10-20T00:00:00+00:00",
     "slide_count": 7,
-    "last_attempt_at": "2026-11-11T21:16:19.147951+00:00",
-    "attempts": 1000,
+    "last_attempt_at": "2026-11-11T21:18:14.007566+00:00",
+    "attempts": 1001,
     "last_error": "HTTP Error 401: Unauthorized"
   },
   {
@@ -234,8 +234,8 @@
     "status": "agendado",
     "validated_at": "2026-10-20T00:00:00+00:00",
     "slide_count": 7,
-    "last_attempt_at": "2026-11-11T21:16:19.147951+00:00",
-    "attempts": 6,
+    "last_attempt_at": "2026-11-11T21:18:14.007566+00:00",
+    "attempts": 7,
     "last_error": "HTTP Error 401: Unauthorized"
   },
   {
