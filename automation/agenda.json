@@ -222,8 +222,8 @@
     "status": "agendado",
     "validated_at": "2026-10-20T00:00:00+00:00",
     "slide_count": 7,
-    "last_attempt_at": "2026-11-11T20:59:18.891067+00:00",
-    "attempts": 994,
+    "last_attempt_at": "2026-11-11T21:00:22.769705+00:00",
+    "attempts": 995,
     "last_error": "HTTP Error 401: Unauthorized"
   },
   {
@@ -233,7 +233,10 @@
     "timezone": "America/Sao_Paulo",
     "status": "agendado",
     "validated_at": "2026-10-20T00:00:00+00:00",
-    "slide_count": 7
+    "slide_count": 7,
+    "last_attempt_at": "2026-11-11T21:00:22.769705+00:00",
+    "attempts": 1,
+    "last_error": "HTTP Error 401: Unauthorized"
   },
   {
     "post_id": 307,
