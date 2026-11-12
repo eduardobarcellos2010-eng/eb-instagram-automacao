@@ -13,7 +13,8 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 AGENDA = ROOT / "automation" / "agenda.json"
 POSTS = ROOT / "automation" / "posts.json"
-API = "https://graph.instagram.com/v23.0"
+# Token de usuário do sistema: usar a Graph API da Meta.
+API = "https://graph.facebook.com/v23.0"
 
 
 def load(path, fallback):
