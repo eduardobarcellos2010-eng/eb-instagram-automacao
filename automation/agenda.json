@@ -219,12 +219,11 @@
     "source_code": "EB-18",
     "scheduled_at": "2026-11-07T18:00:00-03:00",
     "timezone": "America/Sao_Paulo",
-    "status": "agendado",
+    "status": "publicado",
     "validated_at": "2026-10-19T21:00:00-03:00",
     "slide_count": 7,
-    "last_attempt_at": "2026-11-12T00:32:12.324072+00:00",
-    "attempts": 1037,
-    "last_error": "HTTP Error 401: Unauthorized"
+    "published_at": "2026-11-12T00:37:13.338762+00:00",
+    "media_id": "17986396272067078"
   },
   {
     "post_id": 306,
