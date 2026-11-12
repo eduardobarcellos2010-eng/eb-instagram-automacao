@@ -30,7 +30,7 @@ jobs:
       - name: Executar publicacao ou agenda
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
-          IG_USER_ID: "38809152418675604"
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
         run: |
           if [ "${{ github.event_name }}" = "schedule" ]; then
             python scripts/instagram_publish.py --operation processar
