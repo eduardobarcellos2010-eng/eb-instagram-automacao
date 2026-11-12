@@ -32,6 +32,7 @@ jobs:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
         run: |
+          git pull --rebase origin main
           if [ "${{ github.event_name }}" = "schedule" ]; then
             python scripts/instagram_publish.py --operation processar
           else
@@ -47,11 +48,4 @@ jobs:
             exit 0
           fi
           git commit -m 'Atualiza agenda do Instagram'
-          for attempt in 1 2 3; do
-            if git pull --rebase origin main && git push; then
-              exit 0
-            fi
-            git rebase --abort || true
-            sleep 3
-          done
-          exit 1
+          git push
